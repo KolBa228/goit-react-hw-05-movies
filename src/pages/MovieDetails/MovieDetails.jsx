@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import APIservices from "services/fetch";
 
