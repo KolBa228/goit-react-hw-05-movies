@@ -20,7 +20,7 @@ const Movies = () => {
 
   useEffect(() => {
     handleSearch();
-  }, [searchKeyword]);
+  }, [searchKeyword, handleSearch]);
 
   const handleSearch = async () => {
     try {
