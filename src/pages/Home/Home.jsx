@@ -1,9 +1,9 @@
-import { useEffect, useState, lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route, Link, NavLink, useSearchParams, useParams, Outlet, SharedLayout, useNavigate, Navigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import APIservices from "services/fetch";
 import React from 'react';
 import './style.css';
-const Home = ({ movies }) => {
+const Home = () => {
 
 const [trendingMovies, setTrendingMovies] = useState([]);
 
