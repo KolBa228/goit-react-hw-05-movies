@@ -8,6 +8,23 @@ const Movies = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+    const handleSearch = async () => {
+    try {
+      navigate(`/movies?movieKeyWord=${searchKeyword}`);
+      setSearchResults([]);
+
+      const response = await APIservices.fetchMoviesByName(searchKeyword);
+      setSearchResults(response.results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    };
+  
+  
+  const handleInputChange = (event) => {
+    setSearchKeyword(event.target.value);
+  };
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const movieKeyWordParam = params.get('movieKeyWord');
@@ -20,23 +37,10 @@ const Movies = () => {
 
   useEffect(() => {
     handleSearch();
-  }, [searchKeyword, handleSearch]);
+  }, [searchKeyword]);
 
-  const handleSearch = async () => {
-    try {
-      navigate(`/movies?movieKeyWord=${searchKeyword}`);
-      setSearchResults([]);
 
-      const response = await APIservices.fetchMoviesByName(searchKeyword);
-      setSearchResults(response.results);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
 
-  const handleInputChange = (event) => {
-    setSearchKeyword(event.target.value);
-  };
 
   return (
     <div>
