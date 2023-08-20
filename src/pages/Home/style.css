@@ -1,0 +1,21 @@
+ul {
+    display: flex;
+    gap: 90px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+li {
+    width: 200px;
+    background-color: aquamarine;
+}
+
+img {
+    width: 200px;
+}
+
+p {
+    width: 200px;
+}
+
+
