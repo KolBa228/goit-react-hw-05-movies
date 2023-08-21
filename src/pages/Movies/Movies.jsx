@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import APIservices from "services/fetch";
 import FormSearch from "components/FormSearch/FormSearch";
 import FoundMovies from "components/FoundMovies/FoundMovies";

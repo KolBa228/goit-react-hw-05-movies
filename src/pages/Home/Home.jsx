@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import APIservices from "services/fetch";
 import React from 'react';
 import TopMovies from '../../components/TopMovies/TopMovies'
