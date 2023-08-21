@@ -1,6 +1,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import APIservices from "services/fetch";
+import './style.css'
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -25,6 +26,7 @@ const MovieDetails = () => {
 
   return (
     <div>
+      <button style={{ marginTop: "50px" }} onClick={() => window.history.back()}>Back</button>
       <h2>{movieDetails.title}</h2>
       <img src={`http://image.tmdb.org/t/p/w300${movieDetails.poster_path}`} alt={movieDetails.title} />
       <p>Rating: {movieDetails.vote_average}</p>
@@ -39,3 +41,4 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
