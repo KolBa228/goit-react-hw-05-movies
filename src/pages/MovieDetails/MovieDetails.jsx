@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, useRef } from 'react';
 import { useParams, Link, Outlet, useLocation, } from 'react-router-dom';
 import APIservices from "services/fetch";
 import './style.css'
@@ -7,6 +7,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +28,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <Link to={location}>Back</Link>
+      <Link to={backLinkHref.current}>Back</Link>
       <h2>{movieDetails.title}</h2>
       <img src={`http://image.tmdb.org/t/p/w300${movieDetails.poster_path}`} alt={movieDetails.title} />
       <p>Rating: {movieDetails.vote_average}</p>
