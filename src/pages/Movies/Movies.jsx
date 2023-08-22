@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import APIservices from "services/fetch";
 import FormSearch from "components/FormSearch/FormSearch";
 import FoundMovies from "components/FoundMovies/FoundMovies";
@@ -8,6 +8,7 @@ const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieKeyWord = searchParams.get('movieKeyWord') ?? '';
+  const location = useLocation();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -46,7 +47,7 @@ const Movies = () => {
         onChange={handleInputChange}
         onSubmit={handleSearch}
       />
-      <FoundMovies searchResults={searchResults} />
+      <FoundMovies searchResults={searchResults} state={{ from: location } } />
     </div>
   );
 };

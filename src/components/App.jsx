@@ -1,5 +1,5 @@
-import {lazy, Suspense } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import './style.css';
 
 const Home = lazy(() => import('../pages/Home/Home'));
@@ -9,6 +9,7 @@ const Cast = lazy(() => import('../components/Cast/Cast'));
 const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 
 export const App = () => {
+  const navigate = useNavigate();
   return (
     <>
       <nav>
@@ -19,6 +20,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="movies" element={<Movies />} />
+          <Route path="*" element={() => navigate("/")} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
@@ -28,4 +30,3 @@ export const App = () => {
     </>
   );
 };
-
