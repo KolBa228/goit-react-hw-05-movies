@@ -8,7 +8,7 @@ const FoundMovies = ({ searchResults, state }) => {
     <ul>
       {searchResults.map((movie) => (
         <li key={movie.id}>
-          <Link to={`/movies/${movie.id}`} state={{state}}>
+          <Link to={`/movies/${movie.id}`} state={state}>
             <img
               src={movie.poster_path ? `http://image.tmdb.org/t/p/w300${movie.poster_path}` : fallbackImage}
               alt={movie.title}
